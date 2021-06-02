@@ -7,27 +7,25 @@ const Search = () => {
 
     useEffect(()=>{
 
-        
+        const search = async () => {
+            const {data} = await axios.get('https://en.wikipedia.org/w/api.php', {
+                params:{
+                    action: 'query',
+                    list : 'search',
+                    origin: '*',
+                    format: 'json',
+                    srsearch: term,
+                },
+            });
 
-        // const search = async () => {
-        //     const {data} = await axios.get('https://en.wikipedia.org/w/api.php', {
-        //         params:{
-        //             action: 'query',
-        //             list : 'search',
-        //             origin: '*',
-        //             format: 'json',
-        //             srsearch: term,
-        //         },
-        //     });
+            setResults(data.query.search);
+        };
 
-        //     setResults(data.query.search);
-        // };
-
-        // const timeoutId = setTimeout(()=>{
-        //     if (term) {
-        //         search();
-        //     }
-        // },500);
+        const timeoutId = setTimeout(()=>{
+            if (term) {
+                search();
+            }
+        },500);
         
         // declare a helper function and invoke it
         // (async ()=>{
