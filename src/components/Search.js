@@ -54,7 +54,8 @@ const Search = () => {
                     <a 
                         className=" ui button"
                         href={`https://en.wikipedia.org?curid=${result.pageid}`}
-                    >Go
+                    >
+                    Go
                     </a>
                 </div>
                 <div className="content">
