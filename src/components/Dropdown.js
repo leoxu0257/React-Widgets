@@ -13,6 +13,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
             </div>
         );
     });
+
     return(
         <div className="ui form">
             <div className="field">
